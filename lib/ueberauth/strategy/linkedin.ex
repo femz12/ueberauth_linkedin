@@ -2,8 +2,8 @@ defmodule Ueberauth.Strategy.LinkedIn do
   @moduledoc """
   LinkedIn Strategy for Überauth.
   """
-  @user_url "https://api.linkedin.com/v2/me?projection=(id,localizedFirstName,localizedLastName,profilePicture)"
-  @primary_contact_url "https://api.linkedin.com/v2/clientAwareMemberHandles?q=members&projection=(elements*(primary,type))"
+  @user_url "https://api.linkedin.com/v2/me?projection=(id,localizedFirstName,localizedLastName,profilePicture(displayImage~:playableStreams))"
+  @primary_contact_url "https://api.linkedin.com/v2/clientAwareMemberHandles?q=members&projection=(elements*(primary,type,handle~))"
 
   use Ueberauth.Strategy,
     uid_field: :id,
